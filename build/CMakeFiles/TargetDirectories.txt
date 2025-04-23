@@ -1,0 +1,4 @@
+/home/sacha/Documents/Vulkan/Test/build/CMakeFiles/TEn.dir
+/home/sacha/Documents/Vulkan/Test/build/CMakeFiles/CopyShaders.dir
+/home/sacha/Documents/Vulkan/Test/build/CMakeFiles/edit_cache.dir
+/home/sacha/Documents/Vulkan/Test/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/sacha/Documents/Vulkan/Test/build",
+  "command": "/usr/bin/g++  -I/home/sacha/Documents/Vulkan/Test/src -g -O2 -std=c++23 -o CMakeFiles/TEn.dir/main.cpp.o -c /home/sacha/Documents/Vulkan/Test/main.cpp",
+  "file": "/home/sacha/Documents/Vulkan/Test/main.cpp"
+},
+{
+  "directory": "/home/sacha/Documents/Vulkan/Test/build",
+  "command": "/usr/bin/g++  -I/home/sacha/Documents/Vulkan/Test/src -g -O2 -std=c++23 -o CMakeFiles/TEn.dir/src/first_app.cpp.o -c /home/sacha/Documents/Vulkan/Test/src/first_app.cpp",
+  "file": "/home/sacha/Documents/Vulkan/Test/src/first_app.cpp"
+},
+{
+  "directory": "/home/sacha/Documents/Vulkan/Test/build",
+  "command": "/usr/bin/g++  -I/home/sacha/Documents/Vulkan/Test/src -g -O2 -std=c++23 -o CMakeFiles/TEn.dir/src/ten_device.cpp.o -c /home/sacha/Documents/Vulkan/Test/src/ten_device.cpp",
+  "file": "/home/sacha/Documents/Vulkan/Test/src/ten_device.cpp"
+},
+{
+  "directory": "/home/sacha/Documents/Vulkan/Test/build",
+  "command": "/usr/bin/g++  -I/home/sacha/Documents/Vulkan/Test/src -g -O2 -std=c++23 -o CMakeFiles/TEn.dir/src/ten_model.cpp.o -c /home/sacha/Documents/Vulkan/Test/src/ten_model.cpp",
+  "file": "/home/sacha/Documents/Vulkan/Test/src/ten_model.cpp"
+},
+{
+  "directory": "/home/sacha/Documents/Vulkan/Test/build",
+  "command": "/usr/bin/g++  -I/home/sacha/Documents/Vulkan/Test/src -g -O2 -std=c++23 -o CMakeFiles/TEn.dir/src/ten_pipeline.cpp.o -c /home/sacha/Documents/Vulkan/Test/src/ten_pipeline.cpp",
+  "file": "/home/sacha/Documents/Vulkan/Test/src/ten_pipeline.cpp"
+},
+{
+  "directory": "/home/sacha/Documents/Vulkan/Test/build",
+  "command": "/usr/bin/g++  -I/home/sacha/Documents/Vulkan/Test/src -g -O2 -std=c++23 -o CMakeFiles/TEn.dir/src/ten_swap_chain.cpp.o -c /home/sacha/Documents/Vulkan/Test/src/ten_swap_chain.cpp",
+  "file": "/home/sacha/Documents/Vulkan/Test/src/ten_swap_chain.cpp"
+},
+{
+  "directory": "/home/sacha/Documents/Vulkan/Test/build",
+  "command": "/usr/bin/g++  -I/home/sacha/Documents/Vulkan/Test/src -g -O2 -std=c++23 -o CMakeFiles/TEn.dir/src/ten_window.cpp.o -c /home/sacha/Documents/Vulkan/Test/src/ten_window.cpp",
+  "file": "/home/sacha/Documents/Vulkan/Test/src/ten_window.cpp"
+}
+]
