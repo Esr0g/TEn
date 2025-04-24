@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.29)
 project(TEn LANGUAGES CXX)
 
 # C++23
@@ -15,23 +15,13 @@ file(GLOB_RECURSE SOURCES
     *.cpp
     *.hpp
 )
-list(REMOVE_ITEM SOURCES "${CMAKE_BINARY_DIR}/CMakeFiles/3.25.1/CompilerIdCXX/CMakeCXXCompilerId.cpp")
+
+# Remove CMake generated files
+list(FILTER SOURCES EXCLUDE REGEX ".*CMakeCXXCompilerId.cpp$")
 
 
 # Création de l'exécutable
 add_executable(TEn ${SOURCES})
-
-# Libs à l'édition de lien
-target_link_libraries(TEn
-    glfw
-    vulkan
-    dl
-    pthread
-    X11
-    Xxf86vm
-    Xrandr
-    Xi
-)
 
 # Inclure les headers de tous les dossiers (si tu ne veux pas tout en "src/")
 # Ajoute tous les dossiers contenant des headers (récursivement)
@@ -42,6 +32,38 @@ foreach(header ${HEADER_DIRS})
 endforeach()
 list(REMOVE_DUPLICATES ALL_INCLUDE_DIRS)
 target_include_directories(TEn PRIVATE ${ALL_INCLUDE_DIRS})
+
+# Détection de l'OS
+if(CMAKE_SYSTEM_NAME STREQUAL "Windows")
+    # Spécifie les chemins vers Vulkan sur Windows
+    set(Vulkan_INCLUDE_DIR "C:/VulkanSDK/1.4.309.0/Include")
+    set(Vulkan_LIBRARY "C:/VulkanSDK/1.4.309.0/Lib/vulkan-1.lib")
+
+    include_directories(${Vulkan_INCLUDE_DIR})
+    target_link_libraries(TEn ${Vulkan_LIBRARY})
+
+    # Ajoute GLFW (présumé en sous-dossier libs)
+    add_subdirectory(libs/glfw-3.4)
+    target_link_libraries(TEn glfw)
+
+    # Ajoute GLM si utilisé
+    add_subdirectory(libs/glm)
+    target_link_libraries(TEn glm)
+    
+elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    # Sur Linux, on utilise les librairies du système
+    target_link_libraries(TEn
+        glfw
+        vulkan
+        dl
+        pthread
+        X11
+        Xxf86vm
+        Xrandr
+        Xi
+    )
+endif()
+
 
 #################################### SHADERS ###########################################
 
