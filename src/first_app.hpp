@@ -1,19 +1,19 @@
 #pragma once
 
-#include <memory>
+#include <fstream>
+#include <optional>
 #include <vector>
 
 #include "ten_device.hpp"
-#include "ten_model.hpp"
-#include "ten_pipeline.hpp"
 #include "ten_swap_chain.hpp"
 #include "ten_window.hpp"
 
 namespace TEn {
+
 class FirstApp {
    public:
-    static constexpr int WIDTH = 800;
-    static constexpr int HEIGHT = 600;
+    static constexpr uint32_t WINDOW_WIDTH = 800;
+    static constexpr uint32_t WINDOW_HEIGHT = 600;
 
     FirstApp();
     ~FirstApp();
@@ -23,19 +23,17 @@ class FirstApp {
 
     void run();
 
-   private:
-    void loadModels();
-    void createPipelineLayout();
-    void createPipeline();
-    void createCommandBuffer();
+    void createGraphicsPipeline();
+    VkShaderModule createShaderModule(const std::vector<char> &code);
     void drawFrame();
 
+   private:
     TEnWindow tenWindow;
+    TEnCore tenCore;
     TEnDevice tenDevice;
     TEnSwapChain tenSwapChain;
-    std::unique_ptr<TEnPipeline> tenPipeline;
-    VkPipelineLayout pipelineLayout;
-    std::vector<VkCommandBuffer> commandBuffers;
-    std::unique_ptr<TEnModel> tenModel;
+
+    VkPipelineLayout pipelineLayout = VK_NULL_HANDLE;
+    VkPipeline graphicsPipeline = VK_NULL_HANDLE;
 };
 }  // namespace TEn

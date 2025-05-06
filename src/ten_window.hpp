@@ -1,12 +1,10 @@
 #pragma once
 
-#define GLFW_INCLUDE_VULKAN
-#include <GLFW/glfw3.h>
-
 #include <string>
 
-namespace TEn {
+#include "ten_core.hpp"
 
+namespace TEn {
 class TEnWindow {
    public:
     TEnWindow(int w, int h, std::string name);
@@ -16,17 +14,24 @@ class TEnWindow {
     TEnWindow &operator=(const TEnWindow &) = delete;
 
     bool shouldClose();
-    VkExtent2D getExtent();
-
     void createWindowSurface(VkInstance instance, VkSurfaceKHR *surface);
+
+    VkExtent2D getExtent();
+    void waitGlfwResizeEvent();
+
+    bool isFrameBufferResized() { return framebufferResized; }
+    void setFrameBufferResized(const bool b) { framebufferResized = b; }
 
    private:
     void initWindow();
+    static void framebufferResizeCallback(GLFWwindow *window, int width, int height);
 
-    const int width;
-    const int height;
+    int width;
+    int height;
 
     std::string windowName;
-    GLFWwindow *window;
+    GLFWwindow *window = nullptr;
+
+    bool framebufferResized = false;
 };
 }  // namespace TEn

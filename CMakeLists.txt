@@ -6,8 +6,10 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-# Optimisation
-add_compile_options(-O2)
+# Set build types and flags only if not already defined (useful for MSVC)
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
+endif()
 
 file(GLOB_RECURSE SOURCES
     src/*.cpp
@@ -71,7 +73,7 @@ endif()
 file(GLOB_RECURSE SPV_SHADERS CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/shaders/*.spv")
 
 # Répertoire de destination dans le dossier de build
-set(SPV_DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/shaders")
+set(SPV_DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/Debug/shaders")
 
 # Cible pour copier les shaders
 add_custom_target(CopyShaders ALL
